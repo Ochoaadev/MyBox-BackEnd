@@ -3,6 +3,8 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const { swaggerDocs } = require("./swagger");
+const dbconnection = require('./src/config/conexion')
+
 
 var indexRouter = require("./src/routes/routes");
 
@@ -20,5 +22,7 @@ app.listen(4000, () => {
   console.log("[Link]    " + "http://localhost:4000");
   swaggerDocs(app, 4000);
 });
+
+dbconnection()
 
 module.exports = app;
