@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 
-const uri = `mongodb+srv://${process.env.USER_DB}:${process.env.PASSWORD_DB}@mybox.n6jacmb.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.USER_DB}:${process.env.PASSWORD_DB}@mybox.n6jacmb.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
 
 module.exports = () => {
   const Connection = () => {
