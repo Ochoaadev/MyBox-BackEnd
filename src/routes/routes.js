@@ -1,23 +1,22 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 // ----------- Controladores ---------------
-const {itemsSolic} = require('../controllers/AggProduct');
+const { itemsSolic } = require("../controllers/AggProduct");
 
 
 // ----------- Rutas ---------------
 
-        //Obtener
- router.get("/")
+//Obtener
+router.get("/");
 
 //Agregar un producto
 router.post("/AgregarIItem", itemsSolic);
 
-        //Actualizar
-router.patch('actualizar')
+//Actualizar
+router.patch("actualizar");
 
-        //Eliminar
-router.delete('/eliminar')
-
+//Eliminar
+router.delete("/eliminar");
 
 module.exports = router;

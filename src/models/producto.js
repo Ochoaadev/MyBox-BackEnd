@@ -22,8 +22,12 @@ const itemsSchemas = new mongoose.Schema(
         },
         fecha_adquisicion:{
             type: Date
+        },
+        create:{
+            type: Date,
+            default: Date.now()
         }
     }
 );
 
-module.exports = mongoose.model('Products', itemsSchemas)
+module.exports = mongoose.model('products', itemsSchemas)
