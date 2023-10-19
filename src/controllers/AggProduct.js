@@ -23,4 +23,14 @@ const itemsSolic = async (req, res) => {
 
 };
 
-module.exports = {itemsSolic};
+const itemList = async (req, res) => {
+  try {
+    const items = await model.find();
+    res.status(200).json(items);
+  } catch (error) {
+    console.log('Error:', error);
+    res.status(500).json({ message: "Error al intentar listar los items", status: 500 });
+  }
+};
+
+module.exports = {itemsSolic, itemList};
