@@ -8,6 +8,7 @@ const { itemsSolic, itemList } = require("../controllers/AggProduct");
 
 const { itemUpdate, itemDelete } = require('../controllers/UpdDel')
 
+const {FilterProducts } = require('../controllers/Filter_Products')
 // ----------- Rutas ---------------
 
 //Obtener
@@ -22,5 +23,7 @@ router.patch('/item/:id', itemUpdate);
 
 //Eliminar
 router.delete('/item/:id', itemDelete);
+
+router.get('/FilterProducts/:titulo', FilterProducts);
 
 module.exports = router;
