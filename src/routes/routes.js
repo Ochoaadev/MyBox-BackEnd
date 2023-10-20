@@ -17,10 +17,10 @@ router.get("/ListarItem", itemList);
 router.post("/AgregarIItem", itemsSolic);
 
 //Actualizar
-router.patch('/item/:id', upload.single('imagen'), itemUpdate);
+router.patch('/item/:id', itemUpdate);
 
 
 //Eliminar
-app.delete('/item/:id', upload.single('imagen'), itemDelete);
+router.delete('/item/:id', itemDelete);
 
 module.exports = router;
