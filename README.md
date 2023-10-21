@@ -10,7 +10,10 @@
 
 # Comandos
 
-        npm install --> Instalar Dependencias
+
+    git clone https://github.com/Ochoaadev/MyBox-BackEnd
+
+    npm install --> Instalar Dependencias
 
     npm run dev --> Iniciar el servidor
 
@@ -27,8 +30,36 @@
 
 # Instrucciones
 
-Antes de iniciar el servidor, instalaremos la dependencias, para que el mismo funcione correctamente (npm install).
-Sucesivamente, iniciaremos el servidor(usando el comando npm run dev)
+Paso 1
+Descarga el repositorio de Front-Ebd
 
-Listo, ya podrás probar las funcionalidades!
+    https://github.com/JMCA2805/MyBox-FrontEnd.git
 
+    git clone https://github.com/JMCA2805/MyBox-FrontEnd.git
+
+Paso 2
+Haz un clon del repositorio de Backend
+
+    git clone https://github.com/Ochoaadev/MyBox-BackEnd
+
+Paso 3
+
+-Abrir carpeta con tu editor de código de preferencia (Visual Studio Code)
+
+Paso 4
+-Abrir la consola del editor (Visual Studio Code)
+
+Paso 5
+-Ejecutar el comando npm i (Instala todas las dependencias necesarias)
+
+    npm install  
+
+Paso 6
+-jecuta el comando npm run dev (Inicia el servidor backend)
+
+    npm run dev
+    
+Paso 7
+- Abre tu Navegador y coloca http://localhost:3000/
+  
+Ya podrás realizar peticiones desde la app del inventario.
