@@ -4,7 +4,7 @@ const itemsSolic = async (req, res) => {
   try {
     const json = {
       titulo: req.body.titulo,
-      imagen: req.file.path,
+      imagen: req.body.image,
       marca: req.body.marca,
       modelo:req.body.modelo,
       cantidad:req.body.cantidad,
