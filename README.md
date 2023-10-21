@@ -22,45 +22,45 @@
 
 # Funcionalidades
 
--Listar los productos
--Agregar productos
--Filtrar productos
--Editar un producto
--Eliminar un producto
+- Listar los productos
+- Agregar productos
+- Filtrar productos
+- Editar un producto
+- Eliminar un producto
 
 # Instrucciones
 
 Paso 1
-Descarga el repositorio de Front-End
+- Descarga el repositorio de Front-End
 
-    https://github.com/JMCA2805/MyBox-FrontEnd.git
+      https://github.com/JMCA2805/MyBox-FrontEnd.git
 
-    git clone https://github.com/JMCA2805/MyBox-FrontEnd.git
+      git clone https://github.com/JMCA2805/MyBox-FrontEnd.git
 
 Paso 2
-Haz un clon del repositorio de Backend
+- Haz un clon del repositorio de Backend
 
-    git clone https://github.com/Ochoaadev/MyBox-BackEnd
+      git clone https://github.com/Ochoaadev/MyBox-BackEnd
 
 Paso 3
 
--Abrir carpeta con tu editor de código de preferencia (Visual Studio Code)
+- Abrir carpeta con tu editor de código de preferencia (Visual Studio Code)
 
 Paso 4
 
--Abrir la consola del editor (Visual Studio Code)
+- Abrir la consola del editor (Visual Studio Code)
 
 Paso 5
 
--Ejecutar el comando npm i (Instala todas las dependencias necesarias)
+- Ejecutar el comando npm i (Instala todas las dependencias necesarias)
 
-    npm install  
+      npm install  
 
 Paso 6
 
--jecuta el comando npm run dev (Inicia el servidor backend)
+- Ejecuta el comando npm run dev (Inicia el servidor backend)
 
-    npm run dev
+      npm run dev
     
 Paso 7
 
