@@ -31,7 +31,7 @@
 # Instrucciones
 
 Paso 1
-Descarga el repositorio de Front-Ebd
+Descarga el repositorio de Front-End
 
     https://github.com/JMCA2805/MyBox-FrontEnd.git
 
@@ -47,19 +47,23 @@ Paso 3
 -Abrir carpeta con tu editor de código de preferencia (Visual Studio Code)
 
 Paso 4
+
 -Abrir la consola del editor (Visual Studio Code)
 
 Paso 5
+
 -Ejecutar el comando npm i (Instala todas las dependencias necesarias)
 
     npm install  
 
 Paso 6
+
 -jecuta el comando npm run dev (Inicia el servidor backend)
 
     npm run dev
     
 Paso 7
+
 - Abre tu Navegador y coloca http://localhost:3000/
   
 Ya podrás realizar peticiones desde la app del inventario.
