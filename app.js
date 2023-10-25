@@ -18,8 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 const storage = multer.diskStorage({
   destination: path.join(__dirname, "src/public"),
-  filename: (req, file, cb, filename) => {
-    cb(null, path.basename(file.originalname));
+  filename: (req, file, cb) => {
+    cb(null, new Date().getTime() + path.extname(file.originalname));
   },
 });
 

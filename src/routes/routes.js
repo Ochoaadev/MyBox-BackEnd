@@ -15,7 +15,7 @@ const {FilterProducts } = require('../controllers/Filter_Products')
 router.get("/ListarItem", itemList);
 
 //Agregar un producto
-router.post("/AgregarIItem", itemsSolic);
+router.post("/AgregarItem", itemsSolic);
 
 //Actualizar
 router.patch('/item/:id', itemUpdate);
