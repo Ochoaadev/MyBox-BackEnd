@@ -21,7 +21,7 @@ router.post("/AgregarItem", itemsSolic);
 router.put('/items/:titulo', itemUpdate);
 
 //Eliminar
-router.delete('/items/delete', itemDelete);
+router.delete('/item/:id', itemDelete);
 
 router.get('/FilterProducts/:titulo', FilterProducts);
 
