@@ -18,11 +18,10 @@ router.get("/ListarItem", itemList);
 router.post("/AgregarItem", itemsSolic);
 
 //Actualizar
-router.patch('/item/:id', itemUpdate);
-
+router.put('/items/:titulo', itemUpdate);
 
 //Eliminar
-router.delete('/item/:id', itemDelete);
+router.delete('/items/delete', itemDelete);
 
 router.get('/FilterProducts/:titulo', FilterProducts);
 
