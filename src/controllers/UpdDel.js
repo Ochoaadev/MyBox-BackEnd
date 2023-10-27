@@ -28,25 +28,15 @@ const itemUpdate = async (req, res) => {
 };
 
 const itemDelete = async (req, res) => {
+  const id = req.params.id;
+ 
   try {
-    const filtro = {
-      titulo: req.body.titulo,
-      marca: req.body.marca,
-      modelo: req.body.modelo
-    };
-
-    const itemToRemove = await model.findOneAndDelete(filtro);
-
-    if (itemToRemove) {
-      res.status(200).json({message: "Item eliminado exitosamente", status: 200});
-    } else {
-      res.status(404).json({message: "Item no encontrado", status: 404});
-    }
-  } catch (error) {
-    console.log('Error', error);
-    res.status(500).json({message: "Error al intentar eliminar el item", status: 500});
+     const deleted = await model.findByIdAndDelete(id);
+     if (!deleted) return res.status(404).send('No item found.');
+     res.send(deleted);
+  } catch (err) {
+     res.status(500).send(err);
   }
-};
-  
+ };
   module.exports = { itemUpdate, itemDelete };
   
