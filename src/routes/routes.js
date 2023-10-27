@@ -18,7 +18,7 @@ router.get("/ListarItem", itemList);
 router.post("/AgregarItem", itemsSolic);
 
 //Actualizar
-router.put('/items/:titulo', itemUpdate);
+router.put('/items/:id', itemUpdate);
 
 //Eliminar
 router.delete('/item/:id', itemDelete);
