@@ -28,15 +28,16 @@ const itemUpdate = async (req, res) => {
     res.status(500).json({ message: "Error al intentar editar el item", status: 500 });
   }
 };
+
 const itemDelete = async (req, res) => {
   const id = req.params.id;
  
   try {
      const deleted = await model.findByIdAndDelete(id);
-     if (!deleted) return res.status(404).send('No item found.');
-     res.send(deleted);
+     if (!deleted) return res.status(500).send('Error al intentar eliminar el item.');
+     res.status(200).json({ message: "Item eliminado exitosamente", status: 200, deleted: deleted });
   } catch (err) {
-     res.status(500).send(err);
+     res.status(500).json({ message: err, status: 500 });
   }
  };
   module.exports = { itemUpdate, itemDelete };
