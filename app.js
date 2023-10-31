@@ -53,5 +53,6 @@ app.listen(4000, () => {
 });
 
 dbconnection();
+CheckEnv();
 
 module.exports = app;
