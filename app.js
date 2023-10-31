@@ -7,6 +7,7 @@ const dbconnection = require("./src/config/conexion");
 const multer = require("multer");
 const cors = require("cors");
 const { format } = require("timeago.js");
+const fs = require('fs')
 
 var indexRouter = require("./src/routes/routes");
 
