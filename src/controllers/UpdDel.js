@@ -36,14 +36,19 @@ const itemUpdate = async (req, res) => {
 
 const itemDelete = async (req, res) => {
   const id = req.params.id;
- 
+  
   try {
-     const deleted = await model.findByIdAndDelete(id);
-     if (!deleted) return res.status(500).send('Error al intentar eliminar el item.');
-     res.status(200).json({ message: "Item eliminado exitosamente", status: 200, deleted: deleted });
+      const deleted = await model.findByIdAndDelete(id);
+      if (!deleted) return res.status(404).send('Error: No se encontró el producto que se desea eliminar.');
+      res.status(200).json({ message: "Producto eliminado exitosamente", status: 200, deleted: deleted });
   } catch (err) {
-     res.status(500).json({ message: err, status: 500 });
+      if (err.name === 'CastError' && err.kind === 'ObjectId') {
+         return res.status(400).send('Error: El ID del producto proporcionado no es válido.');
+      } else {
+         return res.status(500).send('Error al intentar eliminar el item.');
+      }
   }
  };
+
   module.exports = { itemUpdate, itemDelete };
   
