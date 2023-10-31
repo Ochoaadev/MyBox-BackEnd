@@ -7,6 +7,7 @@ const dbconnection = require("./src/config/conexion");
 const multer = require("multer");
 const cors = require("cors");
 const { format } = require("timeago.js");
+const fs = require('fs')
 
 var indexRouter = require("./src/routes/routes");
 
@@ -33,6 +34,19 @@ app.use((req, res, next) => {
 
 app.use("/", indexRouter);
 
+//Verificación de .ENV, en caso que no exista, se detiene el servidor
+const CheckEnv = () => {
+   try {
+      fs.accessSync('.env', fs.constants.F_OK);
+      //Si lo encuentra devuelve el console.log
+      console.log('Archivo .env encontrado');
+   } catch (err) {
+      //Caso contrario, devuelve el error(Dicho error se visualiza en la consola, antes del [Running]-PORT)
+      console.error('Error: Archivo .env no encontrado');
+      process.exit(1)
+   }
+  };
+
 app.listen(4000, () => {
   console.log(`[Running] - PORT: 4000`);
   console.log("[Link]    " + "http://localhost:4000");
@@ -40,5 +54,6 @@ app.listen(4000, () => {
 });
 
 dbconnection();
+CheckEnv();
 
 module.exports = app;
