@@ -10,10 +10,12 @@ const { itemUpdate, itemDelete } = require('../controllers/UpdDel')
 
 const {FilterProducts } = require('../controllers/Filter_Products')
 
-
 //-----------Categorias--------------
 const { cat_List, cat_add, del_cat } = require("../controllers/Categoria_Get_Post_Del");
 
+
+//-----------Login y Registro--------------
+const {login, register} = require("../controllers/Users/Login-Register");
 
 // ----------- Rutas ---------------
 
@@ -36,5 +38,11 @@ router.get('/FilterProducts/:titulo', FilterProducts);
 router.get("/Listar_categorias", cat_List);
 router.post("/Agregar_categorias", cat_add);
 router.delete("/Eliminar_categorias/:id", del_cat);
+
+//Rutas de registro
+router.post("/registro", register);
+
+//Rutas de login
+router.post("/login", login);
 
 module.exports = router;

@@ -3,11 +3,17 @@ const bcrypt = require("bcrypt");
 // Encriptado de contraseñas
 function Encrypt(password) {
   return new Promise((resolve, reject) => {
-    bcrypt.hash(password, process.env.saltRounds, (err, hash) => {
+    bcrypt.genSalt(Number(process.env.saltRounds), (err, salt) => {
       if (err) {
         reject(err);
       } else {
-        resolve(hash);
+        bcrypt.hash(password, salt, (err, hash) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(hash);
+          }
+        });
       }
     });
   });
