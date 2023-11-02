@@ -6,17 +6,28 @@ const { itemsSolic, itemList } = require("../controllers/AggProduct");
 
 // const { itemList } = require ('../controllers/AggProduct');
 
-const { itemUpdate, itemDelete } = require('../controllers/UpdDel')
+const { itemUpdate, itemDelete } = require("../controllers/UpdDel");
 
-const {FilterProducts } = require('../controllers/Filter_Products')
+const { FilterProducts } = require("../controllers/Filter_Products");
 
 //-----------Categorias--------------
-const { cat_List, cat_add, del_cat } = require("../controllers/Categoria_Get_Post_Del");
+const {
+  cat_List,
+  cat_add,
+  del_cat,
+} = require("../controllers/Categoria_Get_Post_Del");
 
-const {addFavorito, deleteFavorito, getFavoritos} = require ('../controllers/Fav')
+const {
+  addFavorito,
+  deleteFavorito,
+  getFavoritos,
+} = require("../controllers/Fav");
 
 //-----------Login y Registro--------------
-const {login, register} = require("../controllers/Users/Login-Register");
+const { login, register } = require("../controllers/Users/Login-Register");
+
+//----------- Validar token--------------
+const { Authenticate, ValidateRol } = require("../middlewares/JWT");
 
 // ----------- Rutas ---------------
 
@@ -27,13 +38,12 @@ router.get("/ListarItem", itemList);
 router.post("/AgregarItem", itemsSolic);
 
 //Actualizar
-router.put('/items/:id', itemUpdate);
+router.put("/items/:id", itemUpdate);
 
 //Eliminar
-router.delete('/item/:id', itemDelete);
+router.delete("/item/:id", itemDelete);
 
-router.get('/FilterProducts/:titulo', FilterProducts);
-
+router.get("/FilterProducts/:titulo", FilterProducts);
 
 //------Categorias
 router.get("/Listar_categorias", cat_List);
@@ -42,14 +52,17 @@ router.delete("/Eliminar_categorias/:id", del_cat);
 
 //Favoritos
 
-router.post('/favoritos', addFavorito);
-router.delete('/favoritos/:id', deleteFavorito);
-router.get('/favoritos/:userId', getFavoritos);
+router.post("/favoritos", addFavorito);
+router.delete("/favoritos/:id", deleteFavorito);
+router.get("/favoritos/:userId", getFavoritos);
 
 //Rutas de registro
 router.post("/registro", register);
 
 //Rutas de login
 router.post("/login", login);
+
+//Validar Token
+router.post("/Validate", Authenticate, ValidateRol);
 
 module.exports = router;

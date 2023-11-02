@@ -21,8 +21,12 @@ const register = async (req, res) => {
 
     const user = { name, lastname, email, 'password':hash,phone,rol,username, gender}
     const data = new model(user)
-
-    const token = GenerarToken(user);
+    const payload = {
+      username,
+      email,
+      rol
+    }
+    const token = GenerarToken(payload);
 
     console.log(hash,token,user)
     try {
@@ -64,14 +68,12 @@ const login = async (req, res) => {
     if (!match) {
       return res.status(401).json({ message: "Contraseña o Usuario incorrecto",status: 401});
     }
-
-    const data2 = {
+    const payload = {
       username: data[0].username,
       email: data[0].email,
-      rol: data[0].rol
+      rol: data[0].rol,
     }
-
-    const token = GenerarToken(data2);
+    const token = GenerarToken(payload);
 
     res.status(200).json({ token ,message: "Inicio de Sección Exitoso", status: 200 });
 
