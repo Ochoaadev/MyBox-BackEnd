@@ -1,6 +1,7 @@
 const model = require('../models/producto');
 const { UploadImage } = require("../config/claudinary");
-
+const fs = require('fs')
+const path = require('path')
 
 const itemUpdate = async (req, res) => {
   let image_url;
@@ -36,17 +37,25 @@ const itemUpdate = async (req, res) => {
 
 const itemDelete = async (req, res) => {
   const id = req.params.id;
-  
+   
   try {
-      const deleted = await model.findByIdAndDelete(id);
-      if (!deleted) return res.status(404).send('Error: No se encontró el producto que se desea eliminar.');
-      res.status(200).json({ message: "Producto eliminado exitosamente", status: 200, deleted: deleted });
+       const deleted = await model.findByIdAndDelete(id);
+       
+       if (!deleted) return res.status(404).send('Error: No se encontró el producto que se desea eliminar.');
+       
+       // Eliminar imagen del producto si existe
+       const imagePath = path.join(__dirname, '../public/', deleted.imagen);
+       if (fs.existsSync(imagePath)) {
+           fs.unlinkSync(imagePath);
+       }
+       
+       res.status(200).json({ message: "Producto eliminado exitosamente", status: 200, deleted: deleted });
   } catch (err) {
-      if (err.name === 'CastError' && err.kind === 'ObjectId') {
-         return res.status(400).send('Error: El ID del producto proporcionado no es válido.');
-      } else {
-         return res.status(500).send('Error al intentar eliminar el item.');
-      }
+       if (err.name === 'CastError' && err.kind === 'ObjectId') {
+          return res.status(400).send('Error: El ID del producto proporcionado no es válido.');
+       } else {
+          return res.status(500).send('Error al intentar eliminar el item.');
+       }
   }
  };
 
