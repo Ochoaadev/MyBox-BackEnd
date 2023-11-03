@@ -33,7 +33,7 @@ const register = async (req, res) => {
       //Se procede a guardar
       await data.save();
       //En tal caso todo haya salido bien
-      res.status(200).json({message: "Registro Exitoso",token, status: 200});
+      res.status(200).json({payload, message: "Registro Exitoso",token, status: 200});
     } catch (error) {
       //Caso contrario
       console.log('Error', error);
@@ -73,9 +73,9 @@ const login = async (req, res) => {
       email: data[0].email,
       rol: data[0].rol,
     }
-    const token = GenerarToken(payload);
+    const token = await GenerarToken(payload);
 
-    res.status(200).json({ token ,message: "Inicio de Sección Exitoso", status: 200 });
+    res.status(200).json({ token, payload ,message: "Inicio de Sección Exitoso", status: 200 });
 
   } catch (error) {
     res.status(500).json({ message: "Contraseña o Usuario incorrecto", message1: error.message, status: 500 });

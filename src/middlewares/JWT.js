@@ -50,7 +50,7 @@ const ValidateRol = async (req, res) => {
     if (payload) {
       res
         .status(200)
-        .json({ payload: payload, message: "Rol Validado", status: 200 });
+        .json({ payload, message: "Rol Validado", status: 200 });
     } else {
       res.sendStatus(400);
     }
