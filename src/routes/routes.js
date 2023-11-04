@@ -20,7 +20,7 @@ const {
 const {
   addFavorito,
   deleteFavorito,
-  getFavoritos,
+  getFavorito,
 } = require("../controllers/Fav");
 
 //-----------Login y Registro--------------
@@ -52,9 +52,9 @@ router.delete("/Eliminar_categorias/:id", del_cat);
 
 //Favoritos
 
-router.post("/favoritos", addFavorito);
-router.delete("/favoritos/:id", deleteFavorito);
-router.get("/favoritos/:userId", getFavoritos);
+router.post('/favoritos', addFavorito);
+router.delete('/favoritos/:id', deleteFavorito);
+router.get('/favoritos', getFavorito);
 
 //Rutas de registro
 router.post("/registro", register);
