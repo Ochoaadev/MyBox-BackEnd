@@ -1,47 +1,51 @@
 const Favorito = require('../models/favorito');
 const mongoose = require('mongoose');
+const { isEmpty } = require('validator');
 
-// Función para verificar si un valor es un ObjectId válido
+//Verificación
 function isValidObjectId(id) {
- return mongoose.Types.ObjectId.isValid(id);
+   return mongoose.Types.ObjectId.isValid(id);
+  }
+
+  const addFavorito = async (req, res) => {  
+   try {
+      const { username, categoria } = req.body;
+
+      if (!isValidObjectId(categoria)) {
+         return res.status(400).json({ error: 'Invalid ObjectId(s)' });
+      }
+
+      if (isEmpty(username)) {
+         return res.status(400).json({ error: 'Nombre de usuario invalido, vuelve a intentar' });
+      }
+
+      const favorito = new Favorito({ username, categoria });
+      await favorito.save();
+      res.status(201).json({ message: "Se ha registrado correctamente"});
+
+   } catch (error) {
+      res.status(500).json({ error: error.message });
+   }
+};
+const deleteFavorito = async (req, res) => {
+   const { id } = req.params;
+  
+   try {
+       await Favorito.findByIdAndDelete(id);
+      res.status(200).json({message: "Eliminado de manera exitosa"});
+   } catch (error) {
+      res.status(400).json({ error });
+   }
+  };
+  
+  const getFavorito = async (req, res) => {
+      try {
+      const favorito = await Favorito.find({});
+      res.status(200).json(favorito);
+   } catch (error) {
+      res.status(400).json({ error });
+   }
 }
 
-// Controlador para agregar un favorito
-const addFavorito = async (req, res) => {
- try {
-    const { userId, categoria } = req.body;
-
-    // Verificar si los valores de userId y categoria son ObjectId válidos
-    if (!isValidObjectId(userId) || !isValidObjectId(categoria)) {
-      return res.status(400).json({ error: 'Invalid ObjectId(s)' });
-    }
-
-    const favorito = new Favorito({ userId, categoria });
-    await favorito.save();
-    res.send('Producto Agregado a favorito exitosamente');
-
-    res.status(201).json(favorito);
- } catch (error) {
-    res.status(500).json({ error: error.message });
- }
-};
-//Eliminar
-const deleteFavorito = async (req, res) => {
- try {
-    await Favorito.findByIdAndDelete(req.params.id);
-    res.send('Favorito eliminado');
- } catch (error) {
-    res.status(500).send(error);
- }
-};
-//Obtener(ID)
-const getFavoritos = async (req, res) => {
- try {
-    const favoritos = await Favorito.find({ userId: req.params.userId });
-    res.send(favoritos);
- } catch (error) {
-    res.status(500).send(error);
- }
-};
 
 module.exports = { addFavorito, deleteFavorito, getFavoritos}
