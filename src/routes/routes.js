@@ -23,6 +23,14 @@ const {
   getFavorito,
 } = require("../controllers/Fav");
 
+//-------------Usuario------------
+
+const {
+	GetUser, 
+	deleteUser, 
+	editUser
+} = require("../controllers/userM")
+
 //-----------Login y Registro--------------
 const { login, register } = require("../controllers/Users/Login-Register");
 
@@ -61,6 +69,12 @@ router.post("/registro", register);
 
 //Rutas de login
 router.post("/login", login);
+
+//Ruta usuario 
+
+router.get("/User/:id/get", GetUser)
+router.delete('/User/:id', deleteUser);
+router.put('/User/:id/edit', editUser)
 
 //Validar Token
 router.post("/Validate", Authenticate, ValidateRol);
