@@ -14,6 +14,9 @@ const itemsSchemas = new mongoose.Schema(
         modelo:{
             type: String
         },
+        category:{
+            type: String
+        },
         cantidad:{
             type: Number
         },

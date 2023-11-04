@@ -10,13 +10,14 @@ const itemsSolic = async (req, res) => {
        imagen: image_url,
        marca: req.body.marca,
        modelo: req.body.modelo,
+       category: req.body.category,
        cantidad: req.body.cantidad,
        precio_adquisicion: req.body.precio_adquisicion,
        fecha_adquisicion: req.body.fecha_adquisicion,
      };
  
      // Validamos que no falten datos en el objeto json
-     if (!json.titulo || !json.imagen || !json.marca || !json.modelo || !json.cantidad || !json.precio_adquisicion || !json.fecha_adquisicion) {
+     if (!json.titulo || !json.imagen || !json.marca || !json.modelo || !json.category || !json.cantidad || !json.precio_adquisicion || !json.fecha_adquisicion) {
        return res
          .status(400)
          .json({ message: "Faltan datos necesarios para agregar el item", status: 400 });

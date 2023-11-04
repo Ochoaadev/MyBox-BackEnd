@@ -16,6 +16,7 @@ const itemUpdate = async (req, res) => {
       titulo: req.body.titulo,
       marca: req.body.marca,
       modelo:req.body.modelo,
+      category:req.body.category,
       cantidad:req.body.cantidad,
       precio_adquisicion: req.body.precio_adquisicion,
       fecha_adquisicion: req.body.fecha_adquisicion
