@@ -94,5 +94,25 @@ const updatePassword = async (req, res) => {
       });
   }
 };
+//----------------------------------------------------------------------------------------------------------
+//Iniciar la función para  consultar los usuarios
+const user_list = async (req, res) => {
+  try {
+     //Se inicializa usuarios con el model.find realizando la busqueda de los records.
+     const user_list = await model.find();
+     //Se valida la respuesta de la base de datos.
+     res.status(200).json(user_list);
+  } catch (error) {
+     //Se muestra el error recibido en console log, en caso de ser asi.
+     console.log("Error:", error);
+     //Si la respuesta es 500 algun parametro no coincide y se retorna el mensaje o por conexión.
+     res
+     .status(500)
+     .json({ message: "Por favor verificar, error al intentar consultar los usuarios.", status: 500 });
+  }
+};
+//Fin de la función User_List
+//----------------------------------------------------------------------------------------------------------
 
-module.exports = { GetUser, deleteUser, editUser, updatePassword };
+
+module.exports = { GetUser, deleteUser, editUser, updatePassword, user_list };
