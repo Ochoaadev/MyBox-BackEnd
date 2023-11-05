@@ -5,7 +5,7 @@ const FilterProducts = async (req, res) => {
         titulo
     } = req.params;
     try {                                                     //Se validan si no hay un error      
-        const registro = await model.find({titulo:{"$regex":titulo,"$options":"i"}}).sort({ titulo: -1 }).limit(5).exec();  //Se espera una respuesta y se utiliza find y limit para solo consultar 5 para consultar la tabla
+        const registro = await model.find({titulo:{"$regex":titulo,"$options":"i"}}).exec();
 
         if (!registro?.length) {                                       //Se condiciona si no se encuentran registros 
             return res.status(404).json({ message: "Producto no encontrado" });    //Si la respuesta del servidor es 404 Se muestra el mensaje
