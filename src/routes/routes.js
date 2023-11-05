@@ -29,7 +29,8 @@ const {
 	GetUser, 
 	deleteUser, 
 	editUser,
-  updatePassword
+  updatePassword,
+  user_list
 } = require("../controllers/userM")
 
 //-----------Login y Registro--------------
@@ -73,7 +74,8 @@ router.post("/login", login);
 
 //Ruta usuario 
 
-router.get("/User/:id/get", GetUser)
+router.get("/User", user_list);
+router.get("/User/:id/get", GetUser);
 router.delete('/User/:id', deleteUser);
 router.put('/User/:id/edit', editUser);
 router.put('/User/:id/Password', updatePassword);
