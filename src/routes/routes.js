@@ -4,7 +4,7 @@ var router = express.Router();
 // ----------- Controladores ---------------
 const { itemsSolic, itemList } = require("../controllers/AggProduct");
 
-// const { itemList } = require ('../controllers/AggProduct');
+const {AddOrRemoveFav, getFavorites} = require('../controllers/Fav');
 
 const { itemUpdate, itemDelete } = require("../controllers/UpdDel");
 
@@ -72,9 +72,8 @@ router.delete("/Eliminar_categorias/:id", del_cat);
 
 //Favoritos
 
-router.post('/favoritos', addFavorito);
-router.delete('/favoritos/:id', deleteFavorito);
-router.get('/favoritos', getFavorito);
+router.put('/favoritos/:usuarioId/:productoId', AddOrRemoveFav);
+router.get('/favoritos/:usuarioId', getFavorites);
 
 //Rutas de registro
 router.post("/registro", register);
