@@ -10,6 +10,8 @@ const { itemUpdate, itemDelete } = require("../controllers/UpdDel");
 
 const { FilterProducts, Fil_Cat } = require("../controllers/Filter_Products");
 
+const {getAllProducts} = require('../controllers/pagination')
+
 //-----------Categorias--------------
 const {
   cat_List,
@@ -38,6 +40,10 @@ const { login, register } = require("../controllers/Users/Login-Register");
 
 //----------- Validar token--------------
 const { Authenticate, ValidateRol } = require("../middlewares/JWT");
+
+//------------Paginado-----------------
+
+router.get('/productos', getAllProducts);
 
 // ----------- Rutas ---------------
 
