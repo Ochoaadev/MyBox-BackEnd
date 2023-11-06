@@ -8,7 +8,7 @@ const { itemsSolic, itemList } = require("../controllers/AggProduct");
 
 const { itemUpdate, itemDelete } = require("../controllers/UpdDel");
 
-const { FilterProducts, Fil_Cat } = require("../controllers/Filter_Products");
+const { FilterProducts, Fil_Cat, Nada } = require("../controllers/Filter_Products");
 
 const {getAllProducts} = require('../controllers/pagination')
 
@@ -60,6 +60,9 @@ router.put("/items/:id", itemUpdate);
 router.delete("/item/:id", itemDelete);
 
 router.get("/FilterProducts/:titulo", FilterProducts);
+
+router.get("/FilterProducts/", Nada);
+router.get("/Filtrar_categorias/", Nada);
 
 //------Categorias
 router.get("/Listar_categorias", cat_List);Fil_Cat
