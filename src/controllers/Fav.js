@@ -1,51 +1,47 @@
-const Favorito = require("../models/favorito");
-const mongoose = require("mongoose");
-const { isEmpty } = require("validator");
+const Product = require("../models/producto")
+const Favorito = require("../models/favorito")
 
-//Verificación
-function isValidObjectId(id) {
-  return mongoose.Types.ObjectId.isValid(id);
-}
+//------------------------------------------------------------------------------------
+const AddOrRemoveFav = async (req, res) => {
+  const { usuarioId, productoId } = req.params;
 
-const addFavorito = async (req, res) => {
   try {
-    const { username, categoria } = req.body;
+    const favorito = await Favorito.findOne({ usuario: usuarioId, producto: productoId });
 
-    if (!isValidObjectId(categoria)) {
-      return res.status(400).json({ error: "Invalid ObjectId(s)" });
+    if (favorito) {
+      // El favorito ya está agregado, por lo que lo eliminamos
+      await Favorito.findByIdAndRemove(favorito._id);
+      res.status(200).json({ message: 'Favorito eliminado correctamente' });
+    } else {
+      // El favorito no está agregado, por lo que lo añadimos
+      const nuevoFavorito = new Favorito({ usuario: usuarioId, producto: productoId });
+      await nuevoFavorito.save();
+      res.status(200).json({ message: 'Favorito agregado correctamente' });
     }
-
-    if (isEmpty(username)) {
-      return res
-        .status(400)
-        .json({ error: "Nombre de usuario invalido, vuelve a intentar" });
-    }
-
-    const favorito = new Favorito({ username, categoria });
-    await favorito.save();
-    res.status(201).json({ message: "Artículo Añadido a favoritos" });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error);
+    res.status(500).json({ message: 'Ocurrió un error al realizar la operación' });
   }
 };
-const deleteFavorito = async (req, res) => {
-  const { id } = req.params;
 
+//-------------------------------------------------------------------------------------------
+const getFavorites = async (req, res) => {
   try {
-    await Favorito.findByIdAndDelete(id);
-    res.status(200).json({ message: "Eliminado de manera exitosa" });
+     const usuarioId = req.params.usuarioId;
+     const favoritos = await Favorito.find({ usuario: usuarioId });
+ 
+     if (!favoritos) {
+       return res.status(404).json({ message: 'No se encontraron favoritos' });
+     }
+ 
+     // Buscamos los productos correspondientes a cada favorito
+     const productosFavoritos = await Promise.all(favoritos.map(fav => Product.findById(fav.producto)));
+ 
+     res.json(productosFavoritos);
   } catch (error) {
-    res.status(400).json({ error });
+     console.error(error);
+     res.status(500).json({ message: 'Ocurrió un error al realizar la operación' });
   }
-};
+ };
 
-const getFavorito = async (req, res) => {
-  try {
-    const favorito = await Favorito.find({});
-    res.status(200).json(favorito);
-  } catch (error) {
-    res.status(400).json({ error });
-  }
-};
-
-module.exports = { addFavorito, deleteFavorito, getFavorito };
+module.exports = {AddOrRemoveFav, getFavorites};
