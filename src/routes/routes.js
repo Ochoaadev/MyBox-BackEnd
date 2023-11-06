@@ -15,6 +15,7 @@ const {
   cat_List,
   cat_add,
   del_cat,
+  Fil_Cat
 } = require("../controllers/Categoria_Get_Post_Del");
 
 const {
@@ -56,7 +57,8 @@ router.delete("/item/:id", itemDelete);
 router.get("/FilterProducts/:titulo", FilterProducts);
 
 //------Categorias
-router.get("/Listar_categorias", cat_List);
+router.get("/Listar_categorias", cat_List);Fil_Cat
+router.get("/Filtrar_categorias/:categoria", Fil_Cat);
 router.post("/Agregar_categorias", cat_add);
 router.delete("/Eliminar_categorias/:id", del_cat);
 
