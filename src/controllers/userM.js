@@ -26,11 +26,19 @@ const GetUser = async (req, res) => {
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Eliminar Usuario
 
 const deleteUser = async (req, res) => {
-  try {
-    await model.findByIdAndDelete(req.params.id);
-    res.send("Usuario eliminado");
-  } catch (error) {
-    res.status(500).send(error);
+   const id = req.params.id;
+   try {
+      //Se realiza el llamado de findByIdAndDelete(id) transfiriendo id, para eliminar dicho record.
+      const deleted = await model.findByIdAndDelete(id);
+      //Se valida la respuesta del mismo.
+      if (!deleted) return res.status(404).send('Error: No se encontró el Usuario a eliminar.');
+      res.status(200).json({ message: "Usuario Eliminado Satisfactoriamente!", status: 200, deleted: deleted });
+  } catch (err) {
+      if (err.name === 'CastError' && err.kind === 'ObjectId') {
+         return res.status(400).send('Error: El ID del Usuario proporcionada no es válida.');
+      } else {
+         return res.status(500).send('Error al intentar eliminar el Usuario.');
+      }
   }
 };
 
