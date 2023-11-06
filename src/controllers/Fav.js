@@ -23,7 +23,7 @@ const addFavorito = async (req, res) => {
 
     const favorito = new Favorito({ username, categoria });
     await favorito.save();
-    res.status(201).json({ message: "Se ha registrado correctamente" });
+    res.status(201).json({ message: "Artículo Añadido a favoritos" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
