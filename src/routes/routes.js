@@ -8,14 +8,13 @@ const { itemsSolic, itemList } = require("../controllers/AggProduct");
 
 const { itemUpdate, itemDelete } = require("../controllers/UpdDel");
 
-const { FilterProducts } = require("../controllers/Filter_Products");
+const { FilterProducts, Fil_Cat } = require("../controllers/Filter_Products");
 
 //-----------Categorias--------------
 const {
   cat_List,
   cat_add,
-  del_cat,
-  Fil_Cat
+  del_cat
 } = require("../controllers/Categoria_Get_Post_Del");
 
 const {
