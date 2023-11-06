@@ -1,15 +1,23 @@
+
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const Schema = mongoose.Schema;
 
 const favoritoSchema = new Schema({
- categoria: { 
-    type: Schema.Types.ObjectId, 
-    ref: 'Categoria' 
-},
- userId: {
-     type: Schema.Types.ObjectId,
-      ref: 'User' 
+  usuario: {
+    type: Schema.Types.ObjectId,
+    ref: 'Usuario'
+  },
+  producto: {
+    type: Schema.Types.ObjectId,
+    ref: 'Producto',    
+    required: true,
+    validate: {
+      validator: function(value) {
+        return value === null || mongoose.Types.ObjectId.isValid(value);
+      },
+      message: props => `El valor de "producto" no es un ObjectId válido: ${props.value}`
     }
+ },
 });
 
-module.exports =  mongoose.model('Favorito', favoritoSchema);
+module.exports = mongoose.model('Favoritos', favoritoSchema);
