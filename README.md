@@ -47,19 +47,51 @@ Paso 3
 
   ![Logo](https://i.imgur.com/NpAY5Dg.png)
 
-Paso 2
-- Haz un clon del repositorio de Backend
-
-      git clone https://github.com/Ochoaadev/MyBox-BackEnd
-
-Paso 3
-
-- Abrir carpeta con tu editor de código de preferencia (Visual Studio Code)
-
 Paso 4
+- Cuando estamos adentro de la creación del Cluster, que usaremos para la base de datos, elegiremos las siguientes opciones:
 
-- Abrir la consola del editor (Visual Studio Code)
+![Logo](https://i.imgur.com/cUXczuQ.png)
 
+- Elegimos el nombre de nuestro cluster (Que esta vez, le colocaré MiprimerCluster, como ejemplo), completamos el captcha y si todo sale bien, ya tendríamos nuestra base de datos creada
+
+  ![Logo](https://i.imgur.com/sTPl0SI.png)
+
+Paso 5
+
+- Luego de haberse creado, nos dirigen a la siguiente página:
+
+![Logo](https://i.imgur.com/xQeC0as.png)
+
+- Donde crearemos un usuario (con su nombre de usuario y contraseña), donde podremos acceder a la base de datos y podremos empezar a trabajar con ella. Posteriormente, si seguimos bajando nos pide que seleccionemos una dirección de IP con la que trabajará la el cluster. Por defecto, colocamos 0.0.0.0/0
+
+![Logo](https://i.imgur.com/Hyopj1N.png)
+
+- Después de haber creado nuestro usuario, y haber asignado la dirección ip, ya podremos finalizar y salir de este espacio:
+
+  ![Logo](https://i.imgur.com/kmcNeV1.png)
+
+Paso 6
+
+- Ahora, en el menú principal, nos dirigimos a barra de navegación de la parte de izquierda de la pantalla, y seleccionamos Database:
+
+  ![Logo](https://i.imgur.com/QuOYfTa.png)
+
+- Cuando seleccionamos nuestra base de datos “MiprimerCluster”, tendremos las siguientes opciones:
+
+  ![Logo](https://i.imgur.com/ovoLtZY.png)
+
+-  Pero, nosotros nos dirigimos a donde dice Collections. Una vez dentro, nos saldrán las siguientes opciones, y nosotros elegiremos la opción “Add My Own Data”
+
+  ![Logo](https://i.imgur.com/nTU97Cl.png)
+
+-  Nos saldrán los siguientes recuadros, los cuales colocaremos la siguiente información:
+    •	Database Name: Tienda	 Asignamos el nombre a nuestra base de datos
+    •	Collection Name: users		La colección será el lugar donde recibiremos los datos de nuestro proyecto (sean peticiones CRUD, etc).
+   
+- Luego, procedemos a crear la base de datos, junto con la colección:
+
+![Logo](https://i.imgur.com/9F5AR29.png
+)
 Paso 5
 
 - Ejecutar el comando npm i (Instala todas las dependencias necesarias)
