@@ -19,11 +19,6 @@ const {
   del_cat
 } = require("../controllers/Categoria_Get_Post_Del");
 
-const {
-  addFavorito,
-  deleteFavorito,
-  getFavorito,
-} = require("../controllers/Fav");
 
 ////-----------------Usuario-------------
 
@@ -67,7 +62,7 @@ router.get("/Filtrar_categorias/", Nada);
 //------Categorias
 router.get("/Listar_categorias", cat_List);
 //---
-router.get("/Filtrar_categorias/:categoria", Fil_Cat)
+router.get("/Filtrar_categorias/:categoria/:page", Fil_Cat)
 router.post("/Agregar_categorias", cat_add);
 router.delete("/Eliminar_categorias/:id", del_cat);
 
