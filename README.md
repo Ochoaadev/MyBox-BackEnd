@@ -115,9 +115,63 @@ Paso 8
         npm install
 
 ![Logo](https://i.imgur.com/uGhfRTw.png)
-    
-Paso 7
 
-- Abre tu Navegador y coloca http://localhost:3000/
+-  El comando anterior instalará todas las dependencias necesarías para el funcionamiento del Backend
   
-Ya podrás realizar peticiones desde la app del inventario.
+Paso 9
+
+- Sucesivamente, encontraremos un archivo .env, que nos servirá para realizar la conexión a nuestra base de datos:
+
+  ![Logo](https://i.imgur.com/tEhxJ2F.png)
+  
+-  Ahora bien, presta mucha atención, tenemos 3 datos que colocar, como USER_DB, PASSWORD_DB y DBBNAME. Dichos datos los podemos encontrar en la página de mongo
+      ¡Por ejemplo!:
+          •	En el caso de USER_DB tendría el nombre del usuario que tiene acceso a la base de datos (En este ejemplo, sería ochoarondonaa)
+          •	En el caso de PASSWORD_DB, tendría que ir la contraseña que le colocaron (o asignaron) al usuario.
+          •	Por último, en el DBNAME, sería la base de datos que creamos en nuestro cluster(de nombre, Tienda)
+   
+   - Se tendría que ver algo así:
+ 
+   ![Logo](https://i.imgur.com/vjAtZfs.png)
+
+Paso 10
+
+-  Ahora bien, también tendremos que registrarnos en cloudinary (Para esto, se debe de usar VPN, ya que el servicio no se encuentra disponible en nuestra región). Dentro de la página nos dirigimos al botón de registro que se encuentra en la parte superior derecha de la pantalla:
+
+  ![Logo](https://i.imgur.com/Ue3VRQw.png)
+
+-  Estando en el apartado de registro, tendremos multiples opciones de registro, como por Google, email o Github, en esta ocasión usaremos Email:
+
+![Logo](https://i.imgur.com/MXVZEwo.png)
+
+- ¡Completamos con nuestros datos y procedemos a registrarnos correctamente!
+
+![Logo](https://i.imgur.com/5drRJi3.png)
+
+-   Una vez dentro de la página, nos dirigimos a la barra de navegación que se encuentra en la parte izquierda de nuestra pantalla, y nos vamos a la sección de Dashboard. 
+Allí encontraremos 3 parámetros que tendremos que usar para nuestro backend, como lo son, 
+      •	Cloud_name
+      •	Api_key
+      •	Api_secret
+    
+Si bien, ahora nos quedarían 2 datos para finalmente, tener nuestra conexión a la base de datos mongodb. Dichos datos son:
+
+•	SaltRounds   Usualmente pueden colocarse de valores si bien, 8 o 10
+•	TOKEN_SECRET  Aquí tendremos que colocar el token con el que se trabajará, con el propósito de proteger tu JWT
+
+-  Finalmente, el archivo .env se tendría que visualizar de esta manera:
+
+  ![Logo](https://i.imgur.com/BOKGZCp.png)
+
+(Recuerda reemplazar los ** por las clave que te generan las página cloudinary, así como 
+reemplazar por el Token secreto a usar)
+
+Ojo, tener en cuenta que el archivo .env debe ir dentro de la carpeta backend
+
+Paso 11
+
+- Ya nos quedaría iniciar el servidor con el comando:
+
+      npm run dev
+
+  ![Logo](https://i.imgur.com/NHvnUOs.png)
