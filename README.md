@@ -1,5 +1,5 @@
 # Proyecto: MyBox
-  Actividad 2.1 Front-End II
+  Actividad 2.2 Front-End II
 
 # Integrantes
 
@@ -27,6 +27,11 @@
 - Filtrar productos
 - Editar un producto
 - Eliminar un producto
+- Registrarse
+- Inciar Sección
+- Agregar Usuarios
+- Editar Usuarios
+- Eliminar Usuarios
 
 # Instrucciones
 
@@ -175,3 +180,9 @@ Paso 11
       npm run dev
 
   ![Logo](https://i.imgur.com/NHvnUOs.png)
+
+Paso 12
+
+- Descarga el repositorio de Front-End y sigue sus intrucciones (https://github.com/JMCA2805/MyBox-FrontEnd)
+
+      git clone https://github.com/JMCA2805/MyBox-FrontEnd.git
