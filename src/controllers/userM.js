@@ -78,12 +78,12 @@ const updatePassword = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json({ message: "Usuario no encontrado", status: 404 });
+        .json({ msg: "Usuario no encontrado", status: 404 });
     }
 
     const isMatch = await bcrypt.compare(oldPassword, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Contraseña antigua incorrecta" });
+      return res.status(400).json({ msg: "Contraseña antigua incorrecta" });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -91,17 +91,18 @@ const updatePassword = async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({ message: "Contraseña actualizada correctamente" });
+    res.status(200).json({ msg: "Contraseña actualizada correctamente" });
   } catch (error) {
     console.log("Error:", error);
     res
       .status(500)
       .json({
-        message: "Error al intentar actualizar la contraseña",
+        msg: "Error al intentar actualizar la contraseña",
         status: 500,
       });
   }
 };
+
 //----------------------------------------------------------------------------------------------------------
 //Iniciar la función para  consultar los usuarios
 const user_list = async (req, res) => {
