@@ -108,11 +108,13 @@ Paso 7
 
   ![Logo](https://i.imgur.com/cjPyqor.png)
 
-Paso 6
+Paso 8 
 
-- Ejecuta el comando npm run dev (Inicia el servidor backend)
+-  Una vez descargado el repositorio, procedemos a abrirlo en nuestro Visual Studio Code. Una vez abierto el Visual, abriremos el terminal con ctrl  + ñ. Después de abrir la terminal, procedemos a colocar el siguiente comando:
 
-      npm run dev
+        npm install
+
+![Logo](https://i.imgur.com/uGhfRTw.png)
     
 Paso 7
 
