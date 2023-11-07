@@ -31,11 +31,11 @@
 # Instrucciones
 
 Paso 1
-- Descarga el repositorio de Front-End
+Lo primero que haremos será crearnos una cuenta en mongodb, que es, la base de datos con la cual estaremos trabajando en el backend. Para ello, nos ubicamos al siguiente link: https://www.mongodb.com/es
+    -	Una vez dentro de la página, nos dirigimos donde dice Prueba gratuita (dicho botón se encuentra en la parte superior derecha de la pantalla)
 
-      https://github.com/JMCA2805/MyBox-FrontEnd.git
+    ![Logo](https://i.imgur.com/Y3p2EMb.png)
 
-      git clone https://github.com/JMCA2805/MyBox-FrontEnd.git
 
 Paso 2
 - Haz un clon del repositorio de Backend
