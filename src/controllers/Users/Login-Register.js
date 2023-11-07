@@ -18,7 +18,6 @@ const register = async (req, res) => {
       !email ||
       !password ||
       !lastname ||
-      !phone ||
       !username ||
       !gender
     ) {
