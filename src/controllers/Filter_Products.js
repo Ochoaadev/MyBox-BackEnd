@@ -108,4 +108,14 @@ const Fil_Cat = async (req, res) => {
   }
  };
 
+//----------Fin de la función para Filtrar Categorias
+const Nada = async (req, res) => {
+  try {
+    console.log("Nada");
+    res.status(200);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = { FilterProducts, Fil_Cat, Nada };
