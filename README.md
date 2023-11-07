@@ -34,7 +34,7 @@ Paso 1
 Lo primero que haremos será crearnos una cuenta en mongodb, que es, la base de datos con la cual estaremos trabajando en el backend. Para ello, nos ubicamos al siguiente link: https://www.mongodb.com/es
     -	Una vez dentro de la página, nos dirigimos donde dice Prueba gratuita (dicho botón se encuentra en la parte superior derecha de la pantalla)
 
-    ![Logo](https://i.imgur.com/Y3p2EMb.png)
+![Logo](https://i.imgur.com/Y3p2EMb.png)
 
 
 Paso 2
