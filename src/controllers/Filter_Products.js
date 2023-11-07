@@ -6,36 +6,29 @@ const FilterProducts = async (req, res, next) => {
   const limit = 20;
   const skip = (page - 1) * limit;
   const perPage = 20;
-
+ 
   try {
-    //Se validan si no hay un error
-    await model
-      .find({ titulo: { $regex: titulo, $options: "i" } })
-      .skip(skip)
-      .limit(limit)
-      .exec()
-      .then((registro) => {
-        model
-          .countDocuments()
-          .then((count) => {
-            const totalPages = Math.ceil(count / perPage);
-            res.status(200).json({
-              products: registro,
-              current: page,
-              totalPages,
-            }); //Si la busqueda es satisfactoria se muestra la información
-          })
-          .catch((err) => {
-            next(err);
-          });
-      });
+     await model
+       .find({ titulo: { $regex: titulo, $options: "i" } })
+       .skip(skip)
+       .limit(limit)
+       .exec()
+       .then(async (registro) => {
+         const totalFiltrado = await model.countDocuments({
+           titulo: { $regex: titulo, $options: "i" },
+         });
+         const totalPages = Math.ceil(totalFiltrado / perPage);
+         res.status(200).json({
+           products: registro,
+           current: page,
+           totalPages,
+         });
+       });
   } catch (error) {
-    //Se muestran los diferentes errores posibles
-    res.status(500).json({ message: error.message });
-    next(err);
+     res.status(500).json({ message: error.message });
+     next(err);
   }
-};
-
+ };
 //----------------------------------------------------------------------------------------------------------
 
 // const Fil_Cat = async (req, res) => {
