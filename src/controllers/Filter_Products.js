@@ -54,7 +54,7 @@ const Fil_Cat = async (req, res) => {
       .exec();
 
     if (!registro?.length) {
-      return res.status(404).json({ message: "Categoria no encontrada" });
+      return res.status(404).json({ message: "Categoria no encontrada",products: [], totalPages, current: page  });
     }
     res.status(200).json({ products: registro, totalPages, current: page });
   } catch (error) {
