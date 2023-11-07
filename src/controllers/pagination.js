@@ -2,7 +2,7 @@ const model = require('../models/producto');
 
 function getAllProducts(req, res, next) {
   const perPage = 20;
-  const page = req.query.page || 1;
+  const page = req.params.page || 1;
 
   model
     .find({})

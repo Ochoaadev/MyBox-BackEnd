@@ -20,7 +20,9 @@ const users = new mongoose.Schema(
             required: true
         },
         phone:{
-            type: String
+            type: String,
+            unique: false,
+            required: false,
         },
         rol:{
             type: String,

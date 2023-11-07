@@ -60,10 +60,10 @@ const editUser = async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({ msg: "Usuario Actualizado Correctamente" });
+    res.status(200).json({ msg: "Usuario Actualizado Correctamente", status:200 });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ msg: "Server error" });
+    res.status(500).json({ msg: "Server error",status:500 });
   }
 };
 

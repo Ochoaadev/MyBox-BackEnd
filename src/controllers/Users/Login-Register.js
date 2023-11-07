@@ -11,7 +11,7 @@ const register = async (req, res) => {
     rol = "User";
   }
   try {
-    const { name, lastname, email, password, phone, username, gender } =
+    const { name, lastname, email, password, username, gender } =
       req.body;
     if (
       !name ||
@@ -31,7 +31,6 @@ const register = async (req, res) => {
       lastname,
       email,
       password: hash,
-      phone,
       rol,
       username,
       gender,

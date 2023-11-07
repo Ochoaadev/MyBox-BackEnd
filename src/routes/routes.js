@@ -43,7 +43,7 @@ const { Authenticate, ValidateRol } = require("../middlewares/JWT");
 
 //------------Paginado-----------------
 
-router.get('/productos', getAllProducts);
+router.get('/productos/:page', getAllProducts);
 
 // ----------- Rutas ---------------
 
@@ -59,15 +59,15 @@ router.put("/items/:id", itemUpdate);
 //Eliminar
 router.delete("/item/:id", itemDelete);
 //----
-router.get("/FilterProducts/:titulo", FilterProducts);
+router.get("/FilterProducts/:titulo/:page", FilterProducts);
 
 router.get("/FilterProducts/", Nada);
 router.get("/Filtrar_categorias/", Nada);
 
 //------Categorias
-router.get("/Listar_categorias", cat_List);Fil_Cat
+router.get("/Listar_categorias", cat_List);
 //---
-router.get("/Filtrar_categorias/:categoria?_page=1&_limit=20", Fil_Cat)
+router.get("/Filtrar_categorias/:categoria", Fil_Cat)
 router.post("/Agregar_categorias", cat_add);
 router.delete("/Eliminar_categorias/:id", del_cat);
 
