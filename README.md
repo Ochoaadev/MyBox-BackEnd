@@ -90,13 +90,23 @@ Paso 6
    
 - Luego, procedemos a crear la base de datos, junto con la colección:
 
-![Logo](https://i.imgur.com/9F5AR29.png
-)
-Paso 5
+![Logo](https://i.imgur.com/9F5AR29.png)
 
-- Ejecutar el comando npm i (Instala todas las dependencias necesarias)
+Paso 7
 
-      npm install  
+-  Para descargar el repositorio, haremos uso del Git Bash(la cual, puedes descargar a través del siguiente link: https://git-scm.com/downloads)
+
+-   Una vez descargado e instalado el Git Bash, procedemos hacer click derecho en el escritorio, y elegimos el Git Bash
+
+  ![Logo](https://i.imgur.com/f9Q8Vrz.png)
+
+- Después de abrirse procedemos a colocar el siguiente comando para clonar nuestro repositorio
+
+      Git clone https://github.com/Ochoaadev/MyBox-BackEnd
+
+-  Una vez colocado procedemos a darle enter y esperar a que se nos descargue
+
+  ![Logo](https://i.imgur.com/cjPyqor.png)
 
 Paso 6
 
